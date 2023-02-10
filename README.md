@@ -34,10 +34,10 @@ Configuration of the system has to take place before its deployment, because the
 - `graph`: The graph of the commuting nodes, which is set in [config/app_config.c](config/app_config.c) file. For every pair of nodes $i$ and $j$, `graph[i][j]` has to be set `true` if node $i$ can exchange messages with node $j$, or if $i=j$. Otherwise, it has to be set `false`.
 - `LENGTH_OF_BATON_PATH`: Set this parameter equal to the length of the `baton_cycle` array (see below).
 - `baton_path`: This array is set in [config/app_config.c](config/app_config.c) file. It should contain a sequence of nodes which create a path obeying the following rules:
-    - RULE 1: The array should include every node at least once.
-    - RULE 2: Every node should have an edge (according to the graph) with its previous and next node (according to their ordering in the array).
-    - RULE 3: The last node of the array should have an edge with the first one.
-    - RULE 4: Every subarray of 2 or more elements should be unique. For example, sequences like $...1,2,3...$ and $...1,2,4...$ should not exist in the same path.
+    - RULE $1$: The array should include every node at least once.
+    - RULE $2$: Every node should have an edge (according to the graph) with its previous and next node (according to their ordering in the array).
+    - RULE $3$: The last node of the array should have an edge with the first one.
+    - RULE $4$: Every subarray of $2$ or more elements should be unique. For example, sequences like $...1,2,3...$ and $...1,2,4...$ should not exist in the same path.
 - `TX_PAYLOAD_LENGTH`: The payload (i.e., actual information) of every transmitted message (in bytes). It should not be less than $6$.
 - `MIN_TEMPERATURE`: The minimum temperature that can be possibly measured (in Celsius degrees).
 - `STOP_THRESHOLD`: Determines when the execution of the Average Consensus algorithm will be terminated. More in detail, the execution will be terminated if $\left|\text{currentState}_i - \text{previousState}_i\right|\leq$`STOP_THRESHOLD` for every node $i=0,...,$`NUM_OF_BOARDS`$-1$. A smaller threshold results in a better estimation of the average but also more iterations of the algorithm before it terminates.
