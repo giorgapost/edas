@@ -5,8 +5,10 @@ This is a distributed embedded system, which returns the average of the temperat
 ## Table of Contents
 
 - [Description](#description)
+- [Requirements](#requirements)
 - [Configuration](#configuration)
 - [Compilation and deployment](#compilation-and-deployment)
+- [Documentation](#documentation)
 - [Usage](#usage)
 - [Status](#status)
 - [License](#license)
@@ -15,15 +17,22 @@ This is a distributed embedded system, which returns the average of the temperat
 
 
 ## Description
-EDAS is a distributed system executed on [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices (from now on called *nodes*). 
-Every node has a thermistor to measure the air temperature, as well as a TX/RX antenna to exchange messages wirelessly. 
-Average Consensus algorithm relies on iterative exchange of messages between the nodes, until all nodes converge to a fixed point (which is the average
-of all measured temperatures).
+EDAS is a distributed embedded system implemented by [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices (from now on called *nodes*). 
+Every node has a [thermistor](https://en.wikipedia.org/wiki/Thermistor) to measure the air temperature, as well as a TX/RX antenna to exchange messages wirelessly. 
+[Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm relies on iterative exchange of messages between the nodes, until all nodes converge to a fixed point (which is the average of all measured temperatures).
 
 > **Warning**  
 > The graph of the commuting nodes (i.e., the graph with an edge between every pair of nodes which can exchange messages, based on the system's topology) has to be connected, i.e., a path has to exist from any node to any other node in the graph.
 
-The user communicates with the system with console commands given through the serial port. Thanks to its distributed nature, the user can connect, start the averaging process and get the result from any node.
+The user communicates with the system via console commands given through a serial protocol. Thanks to its distributed nature, the user can connect, start the averaging process and get the result from any node of the network.
+
+## Requirements
+- [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices which will be used as the nodes of the distributed network.
+- Efficient power supply for all the nodes of the network. The average temperature can be returned only if all nodes are operational.
+- [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio) 5 (tested) or newer (adaptations may be required).
+- [Gecko SDK](https://www.silabs.com/developers/gecko-software-development-kit) 4.1.3 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
+- [GNU ARM](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain) 7.2.1 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
+
 
 ## Configuration
 
@@ -48,6 +57,8 @@ Configuration of the system has to take place before its deployment, because the
     > If [`SIMULATE_TEMPERATURE_MEASUREMENTS`](config/app_config.h#L47)$=0$, then the contents of [`simulated_temperatures`](config/app_config.c#L37) are useless.
 
 ## Compilation and deployment
+
+## Documentation
 
 ## Usage
 
