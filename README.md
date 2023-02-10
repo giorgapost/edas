@@ -21,7 +21,7 @@ Average Consensus algorithm relies on iterative exchange of messages between the
 of all measured temperatures).
 
 > **Warning**  
-> The graph of the commuting nodes (i.e., the graph with an edge between every pair of nodes which can exchange messages, based on the system's topology) has to be connected, i.e., a path has to exist from any point to any other point in the graph.
+> The graph of the commuting nodes (i.e., the graph with an edge between every pair of nodes which can exchange messages, based on the system's topology) has to be connected, i.e., a path has to exist from any node to any other node in the graph.
 
 The user communicates with the system with console commands given through the serial port. Thanks to its distributed nature, the user can connect, start the averaging process and get the result from any node.
 
