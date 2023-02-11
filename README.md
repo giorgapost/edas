@@ -78,7 +78,7 @@ To compile and deploy the project, follow the instructions below:
 
 To generate detailed documentation of the source code, the [Doxygen](https://www.doxygen.nl/) tool can be utilized. Execute it from the project's directory and use [Doxyfile.cfg](Doxyfile.cfg) for configuration. 
 
-Notice that the implementation of the [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm and the system's behavior can be found in the `app/` folder, as well as in the [config/app_config.h](config/app_config.h) and [config/app_config.c](config/app_config.c) files. The remaining source files are mostly related to the SDK and its interaction with the implemented system.
+Notice that the implementation of the distributed [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm and the state machine of the system can be found in the [`/app/`](app) folder, as well as in the [config/app_config.h](config/app_config.h) and [config/app_config.c](config/app_config.c) files. The remaining source files are mostly related to the SDK and its interaction with the implemented system.
 
 
 ## Status
