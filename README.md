@@ -31,7 +31,7 @@ The user communicates with the system via console commands given through a seria
 - Efficient power supply for all the nodes of the network. The average temperature can be returned only if all nodes are operational.
 - [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio) 5 (tested) or newer (adaptations may be required).
 - [Gecko SDK](https://www.silabs.com/developers/gecko-software-development-kit) 4.1.3 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
-- [GNU ARM](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain) 7.2.1 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
+- [GNU ARM Toolchain](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain) 7.2.1 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
 
 
 ## Configuration
@@ -56,11 +56,28 @@ Configuration of the system has to take place before its deployment, because the
     > **Note**  
     > If [`SIMULATE_TEMPERATURE_MEASUREMENTS`](config/app_config.h#L47)$=0$, then the contents of [`simulated_temperatures`](config/app_config.c#L37) are useless.
 
+
 ## Compilation and deployment
+
+To compile and deploy the project, follow the instructions below:
+- Download and install the Simplicity Studio software (see [Requirements](#requirements) section).
+- From the Simplicity Studio, install a suitable version of the Gecko SDK and the GNU ARM Toolchain (see [Requirements](#requirements) section).
+- Clone the project and import it to the Simplicity Studio (File - Import).
+- Configure the imported project appropriately (see [Configuration](#configuration) section).
+- Set the parameter [`BOARD_ID`](config/app_config.h#L13) to $0,...,$[`NUM_OF_BOARDS`](config/app_config.h#L18)$-1$ successively. For each value:
+    - Build the project (Project - Build Project).
+    - Flash the arised binary file (edas.hex) to the respective Thunderboard device:
+        - Connect the Thunderboard device to the computer via USB cable.
+        - Right click on the .hex file (in Simplicity Studio's project explorer)
+        - Flash to Device - select device - Program.
+
+
+## Usage
 
 ## Documentation
 
-## Usage
+To generate detailed documentation of the source code, the [Doxygen](https://www.doxygen.nl/) tool can be utilized. Execute it from the project's directory and use [Doxyfile.cfg](Doxyfile.cfg) for configuration.
+
 
 ## Status
 
