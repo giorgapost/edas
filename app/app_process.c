@@ -176,6 +176,9 @@ void handle_app_events(RAIL_Handle_t rail_handle){ //Handles 1 event per call. M
 		push(S_INIT_AND_SLEEP);
 		tx_operation_to_achieve = O_GIVE_BATON;
 		state = S_PACKET_TX;
+		app_log_info("\n\n=====================================================\n");
+		app_log_info("Estimated average temperature: %.2f degrees Celsius.\n", consensus_states[BOARD_ID]);
+		app_log_info("=====================================================\n\n\n");
 	} else if(restart_command && baton){ //EVENT WITH PRIOR. 7 - THIS BOARD HAS TO RE-INITIALIZE SINCE THE WHOLE SYSTEM IS RESTARTING - RE-INITIALIZE IMMEDIATELY.
 		app_log_info("=========================================================\n");
 		app_log_info("Restarting...\n");
@@ -225,7 +228,7 @@ void execute_app_state(RAIL_Handle_t rail_handle){
 			measure_temperature();
 			initialize_consensus_setup();
 			state = S_SEND_AVG_CONSENSUS_MSGS;
-			app_log_info("Initialization completed. The measured temperature is %f degrees.\n", consensus_states[BOARD_ID]);
+			app_log_info("Initialization complete!\n");
 		}
 		break;
 	case S_SEND_AVG_CONSENSUS_MSGS:{ //The board enters this state during the average consensus task, and sends its state to all the commuting boards (according to the {@link ../config/app_config.h#graph graph}).

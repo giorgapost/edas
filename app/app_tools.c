@@ -54,11 +54,15 @@ void measure_temperature(){
 	uint32_t rh_data;
 	sl_si70xx_measure_rh_and_temp(sl_i2cspm_sensor, SI7021_ADDR, &rh_data, &temp_data);
 	float temp = (float) temp_data/1000.0;
-	if(SIMULATE_TEMPERATURE_MEASUREMENTS)
+	app_log_info("Actual temperature now is %.2f degrees of Celsius.", temp);
+	if(SIMULATE_TEMPERATURE_MEASUREMENTS){
 		temperature = simulated_temperatures[BOARD_ID];
-	else
+		app_log_info(" However, a (simulated) value of %.2f degrees will be used instead.\n", temperature);
+	}
+	else{
 		temperature = temp;
-	app_log_info("Actual temperature now is %.2f degrees of Celsius. However, a (simulated) value of %.2f degrees will be used instead.\n",temp, temperature);
+		app_log_info("\n");
+	}
 }
 
 /*******************************************************************************
