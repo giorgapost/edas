@@ -44,7 +44,7 @@ extern const float STOP_THRESHOLD;
 #define USE_EM_TRANSITION_LEDS 1
 
 ///Set to 1 if the board has to use pre-specified temperature measurements (from the {@link simulated_temperatures} array), e.g., for debugging or performance measurement. Set to 0 for the board to use the actual temperature measured by its thermistor.
-#define SIMULATE_TEMPERATURE_MEASUREMENTS 1
+#define SIMULATE_TEMPERATURE_MEASUREMENTS 0
 
 ///This array contains some pre-specified temperatures, to be used instead of the actual ones, when {@link SIMULATE_TEMPERATURE_MEASUREMENTS} equals to 1.
 extern const float simulated_temperatures[NUM_OF_BOARDS];
