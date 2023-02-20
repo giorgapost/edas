@@ -10,7 +10,7 @@
 #include <rail_types.h>
 
 ///The identity (also defining the RX channel) of the current board.
-#define BOARD_ID 5
+#define BOARD_ID 0
 
 
 //---------------------------Grid topology constants----------------------------
