@@ -78,7 +78,7 @@ To compile and deploy the project, follow the instructions below:
     > While at least one node of the system is not working due to power outage, the system will not be able to estimate the average temperature. It is very important to ensure that there is sufficient power supply for all nodes.
 - Connect to any node of the system via an appropriate USB cable (USB-A to micro-USB) and establish a connection via the serial port (115200 bps, 8 bits, no parity, 1 stop bit).
 - Type `help` to see a list of available commands.
-- Type `info` to see the unique ID of the connected Thunderboard.
+- Type `info` to see the unique ID (given from the manufacturer) of the connected device.
 - Type `average` to start the execution of Average Consensus on the system. All boards will wake up and execute the iterations of the algorithm. Until its completion, a log with information will be printed on the screen. Finally, when it is terminated all boards will sleep and the estimated average temperature will be returned in the following form:
 ```bash
 ...
