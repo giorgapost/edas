@@ -83,9 +83,11 @@ To compile and deploy the project, follow the instructions below:
 ```bash
 ...
 
-=================================================
-Estimated average temperature: 12 degrees Celsius
-=================================================
+=====================================================
+Estimated average temperature: 20.36 degrees Celsius.
+=====================================================
+
+Now going to sleep...
 ```
 
 ## Documentation
