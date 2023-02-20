@@ -17,7 +17,7 @@ This is a distributed embedded system, which returns the average of the temperat
 
 
 ## Description
-EDAS is a distributed embedded system implemented by [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices (from now on called *nodes*). 
+EDAS is a distributed embedded system implemented on [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices (from now on called *nodes*). 
 Every node has a [thermistor](https://en.wikipedia.org/wiki/Thermistor) to measure the air temperature, as well as a TX/RX antenna to exchange messages wirelessly. 
 [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm relies on iterative exchange of messages between the nodes, until all nodes converge to a fixed point (which is the average of all measured temperatures).
 
@@ -73,6 +73,20 @@ To compile and deploy the project, follow the instructions below:
 
 
 ## Usage
+- After programming the devices, place them at their positions and ensure that they are connected to a robust power supply. Moreover, ensure that their locations come in agreement with the [`graph`](config/app_config.c#L8) variable.
+    > **Warning**  
+    > While at least one node of the system is not working due to power outage, the system will not be able to estimate the average temperature. It is very important to ensure that there is sufficient power supply for all nodes.
+- Connect to any node of the system via an appropriate USB cable (USB-A to micro-USB) and establish a connection via the serial port (115200 bps, 8 bits, no parity, 1 stop bit).
+- Type `help` to see a list of available commands.
+- Type `info` to see the unique ID of the connected Thunderboard.
+- Type `average` to start the execution of Average Consensus on the system. All boards will wake up and execute the iterations of the algorithm. Until its completion, a log with information will be printed on the screen. Finally, when it is terminated all boards will sleep and the estimated average temperature will be returned in the following form:
+```bash
+...
+
+=================================================
+Estimated average temperature: 12 degrees Celsius
+=================================================
+```
 
 ## Documentation
 
