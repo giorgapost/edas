@@ -1,6 +1,6 @@
 # Embedded Distributed Averaging System (EDAS) - Temperature
 
-This is a distributed embedded system, which returns the average of the temperatures measured by its components. The [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm is executed on [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices.
+This is a distributed embedded system, which returns the average of the temperatures measured by its components. The [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm is executed on [Thunderboard Sense 2 EFR32MG24](https://www.silabs.com/development-tools/wireless/efr32xg24-dev-kit) devices.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ This is a distributed embedded system, which returns the average of the temperat
 
 
 ## Description
-EDAS is a distributed embedded system implemented on [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices (from now on called *nodes*). 
+EDAS is a distributed embedded system implemented on [Thunderboard Sense 2 EFR32MG24](https://www.silabs.com/development-tools/wireless/efr32xg24-dev-kit) devices (from now on called *nodes*). 
 Every node has a [thermistor](https://en.wikipedia.org/wiki/Thermistor) to measure the air temperature, as well as a TX/RX antenna to exchange messages wirelessly. 
 [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm relies on iterative exchange of messages between the nodes, until all nodes converge to a fixed point (which is the average of all measured temperatures).
 
@@ -27,7 +27,7 @@ Every node has a [thermistor](https://en.wikipedia.org/wiki/Thermistor) to measu
 The user communicates with the system via console commands given through a serial protocol. Thanks to its distributed nature, the user can connect, start the averaging process and get the result from any node of the network.
 
 ## Requirements
-- [Thunderboard Sense 2](https://www.silabs.com/documents/public/user-guides/ug309-sltb004a-user-guide.pdf) devices which will be used as the nodes of the distributed network.
+- [Thunderboard Sense 2 EFR32MG24](https://www.silabs.com/development-tools/wireless/efr32xg24-dev-kit) devices which will be used as the nodes of the distributed network.
 - Efficient power supply for all the nodes of the network. The average temperature can be returned only if all nodes are operational.
 - [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio) 5 (tested) or newer (adaptations may be required).
 - [Gecko SDK](https://www.silabs.com/developers/gecko-software-development-kit) 4.1.3 (tested) or newer (adaptations may be required). It can be downloaded directly from the [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio).
