@@ -1,4 +1,4 @@
-# Embedded Distributed Averaging System (EDAS) - Temperature
+# Embedded Distributed Averaging System (EDAS)
 
 This is a distributed embedded system, which returns the average of the temperatures measured by its components. The [Average Consensus](https://www.sciencedirect.com/science/article/abs/pii/S0743731506001808) algorithm is executed on [Thunderboard Sense 2 EFR32MG24](https://www.silabs.com/development-tools/wireless/efr32xg24-dev-kit) devices.
 
